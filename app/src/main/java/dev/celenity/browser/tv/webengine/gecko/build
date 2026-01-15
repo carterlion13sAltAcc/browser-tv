@@ -84,6 +84,8 @@ class GeckoWebEngine(val tab: WebTabState): WebEngine {
                     .javaScriptJitTrustedPrincipalsEnabled(false)
                     .loginAutofillEnabled(false)
                     .pdfjsDisabled(false)
+                 builder
+                    .aboutConfigEnabled(true)
                     .preferredColorScheme(BrowserTV.config.theme.value.toGeckoPreferredColorScheme())
                     .printEnabled(false)
                     .remoteDebuggingEnabled(if (BuildConfig.DEBUG) true else false)
@@ -96,6 +98,7 @@ class GeckoWebEngine(val tab: WebTabState): WebEngine {
                     .webFontsEnabled(true)
                     .webManifest(false)
                     .xpinstallEnabled(true)
+                    .remoteDebuggingEnabled(BuildConfig.DEBUG)
                 builder.contentBlocking(
                         ContentBlocking.Settings.Builder()
                             .antiTracking(
